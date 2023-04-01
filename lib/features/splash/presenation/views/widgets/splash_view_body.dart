@@ -1,5 +1,11 @@
 import 'package:bookly/core/utils/assets.dart';
+import 'package:bookly/costants.dart';
+import 'package:bookly/features/home/presenation/views/widgets/home.dart';
+import 'package:bookly/features/splash/presenation/views/widgets/sliding_animation_image.dart';
+import 'package:bookly/features/splash/presenation/views/widgets/sliding_animation_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
@@ -17,17 +23,17 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   void initState() {
     // TODO: implement initState
     super.initState();
-    animationController=AnimationController(vsync: this, duration:  const Duration(seconds: 2));
-    slidingAnimationImage =Tween(begin: Offset(2, 0), end: Offset(0, 0)).animate(animationController);
-    slidingAnimationText =Tween(begin: Offset(-1, 0), end: Offset(0, 0)).animate(animationController);
+    initSlidingAnimation();
+    navigateToHome();
+  }
 
-    animationController.forward();
-  }  
+
+
+
 @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-
     animationController.dispose();
   }
   @override
@@ -35,23 +41,23 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        AnimatedBuilder(
-          animation: slidingAnimationImage,
-          builder: (context ,_){
-          return SlideTransition(
-              position: slidingAnimationImage,
-              child: Image(image: AssetImage(AssetsData.logo,),width: MediaQuery.of(context).size.width*.6,fit: BoxFit.fitWidth,),);
-  },),
-        AnimatedBuilder(
-          animation: slidingAnimationText,
-          builder: (context,_){return SlideTransition(
-            position: slidingAnimationText,
-            child: Align(
-                alignment: Alignment.center,child: Text("Read Books Free")),
-          );},
-
-        )
+        SlidingAnimationImage(slidingAnimationImage: slidingAnimationImage),
+        SlidingAnimationText(slidingAnimationText: slidingAnimationText)
       ],
     );
+  }
+  void initSlidingAnimation() {
+    animationController=AnimationController(vsync: this, duration:  const Duration(seconds: 2));
+    slidingAnimationImage =Tween(begin: const Offset(2, 0), end: const Offset(0, 0)).animate(animationController);
+    slidingAnimationText =Tween(begin: const Offset(-1, 0), end: const Offset(0, 0)).animate(animationController);
+
+    animationController.forward();
+
+  }
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.to(const Home(),transition: Transition.fade, duration: kPrimaryDuration);
+    },);
   }
 }
