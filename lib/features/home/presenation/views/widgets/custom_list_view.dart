@@ -11,7 +11,7 @@ class CustomListViewItems extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8),
+          padding: EdgeInsets.only(right: 15),
           child: CustomImageItem(),
         ),),
     );
