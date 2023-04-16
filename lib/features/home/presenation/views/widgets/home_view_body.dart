@@ -16,8 +16,11 @@ class HomeViewBody extends StatelessWidget {
         children: const[
           CustomAppBar(),
           CustomListViewItems(),
-          SizedBox(height: 40,),
-          Text("Best Seller", style: Styles.textStyle18,),
+          SizedBox(height: 15,),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 20),
+            child: Text("Best Seller", style: Styles.textStyle18,),
+          ),
           BestSellerListViewItem(),
         ],
       ),
@@ -33,9 +36,21 @@ class BestSellerListViewItem extends StatelessWidget {
     return SizedBox(
       height: 120,
       child: Row(
-        children: const [
-          CustomImageItem(),
-
+        children:[
+          const CustomImageItem(),
+          const SizedBox(width: 30,),
+          Column(
+            children:[
+              SizedBox(
+                width: MediaQuery.of(context).size.width*.5,
+                child: const Text("Harry Potter Goblel of Fire",
+                  style: Styles.textStyle20,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              )
+            ],
+          )
         ],
       ),
     );
