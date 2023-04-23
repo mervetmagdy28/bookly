@@ -1,8 +1,10 @@
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/presenation/views/widgets/button_row.dart';
 import 'package:bookly/features/home/presenation/views/widgets/custom_book_details_appBar.dart';
 import 'package:bookly/features/home/presenation/views/widgets/custom_image_item.dart';
 import 'package:bookly/features/home/presenation/views/widgets/rating_row.dart';
 import 'package:flutter/material.dart';
+
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({Key? key}) : super(key: key);
@@ -30,7 +32,8 @@ class BookDetailsViewBody extends StatelessWidget {
            const RatingRow(
              mainAxisAlignment: MainAxisAlignment.center,
            ),
-
+          const SizedBox(height: 30,),
+          const ButtonRow(),
         ],
       ),
     );
