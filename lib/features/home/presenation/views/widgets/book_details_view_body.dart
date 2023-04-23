@@ -2,6 +2,7 @@ import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presenation/views/widgets/button_row.dart';
 import 'package:bookly/features/home/presenation/views/widgets/custom_book_details_appBar.dart';
 import 'package:bookly/features/home/presenation/views/widgets/custom_image_item.dart';
+import 'package:bookly/features/home/presenation/views/widgets/like_list_view.dart';
 import 'package:bookly/features/home/presenation/views/widgets/rating_row.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,13 @@ class BookDetailsViewBody extends StatelessWidget {
            ),
           const SizedBox(height: 30,),
           const ButtonRow(),
+          const SizedBox(height: 10,),
+          Align(
+              alignment:Alignment.bottomLeft,
+              child: Text("You can also Like",style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w600),),
+          ),
+          const SizedBox(height: 10,),
+         const LikeListView()
         ],
       ),
     );
