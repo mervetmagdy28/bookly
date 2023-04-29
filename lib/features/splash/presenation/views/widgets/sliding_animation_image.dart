@@ -16,7 +16,7 @@ class SlidingAnimationImage extends StatelessWidget {
       builder: (context ,_){
         return SlideTransition(
           position: slidingAnimationImage,
-          child: Image(image: const AssetImage(AssetsData.logo,),width: MediaQuery.of(context).size.width*.6,fit: BoxFit.fitWidth,),);
+          child: Image(image: const AssetImage(AssetsData.logo,),width: MediaQuery.of(context).size.width*.4,fit: BoxFit.fitWidth,),);
       },);
   }
 }

@@ -7,8 +7,8 @@ import '../../../../../core/utils/styles.dart';
 import '../../../../../costants.dart';
 import 'custom_image_item.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({Key? key}) : super(key: key);
+class ListViewItem extends StatelessWidget {
+  const ListViewItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
