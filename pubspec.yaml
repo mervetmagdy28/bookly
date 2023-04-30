@@ -41,6 +41,8 @@ dependencies:
   dartz: ^0.10.1
   dio: ^5.1.1
   bloc: ^8.1.1
+  get_it: ^7.3.0
+  flutter_bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:

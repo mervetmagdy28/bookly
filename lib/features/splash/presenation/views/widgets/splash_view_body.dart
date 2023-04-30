@@ -24,9 +24,6 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
     navigateToHome();
   }
 
-
-
-
 @override
   void dispose() {
     // TODO: implement dispose
