@@ -6,7 +6,6 @@ import 'package:bookly/features/home/presenation/view_models/newest_books_cubit/
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'core/utils/service_locator.dart';
 
 void main() {
@@ -25,11 +24,13 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FeaturedBooksCubit(
             getIt.get<HomeRepoImpl>(),
-          ),
+            // HomeRepoImpl(ApiService(Dio())),
+          )..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(
             getIt.get<HomeRepoImpl>(),
+            //  HomeRepoImpl(ApiService(Dio())),
           ),
         ),
       ],
