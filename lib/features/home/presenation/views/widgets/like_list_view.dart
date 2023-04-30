@@ -13,7 +13,7 @@ class LikeListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => const Padding(
           padding: EdgeInsets.only(right: 15),
-          child: CustomImageItem(),
+          child: CustomImageItem(imageUrl: 'https://i1.wp.com/onehundreddollarsamonth.com/wp-content/uploads/2013/11/Top-10-Childrens-Book-Series-The-Perfect-Christmas-Gifts-.jpg?ssl=1'),
         ),)
     );
   }

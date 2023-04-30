@@ -13,7 +13,7 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width*.15),
-          child: const CustomImageItem(),
+          child: const CustomImageItem(imageUrl: 'https://i1.wp.com/onehundreddollarsamonth.com/wp-content/uploads/2013/11/Top-10-Childrens-Book-Series-The-Perfect-Christmas-Gifts-.jpg?ssl=1'),
         ),
         const SizedBox(height: 30,),
         const Text("The Jungle Book", style: Styles.textStyle30,),

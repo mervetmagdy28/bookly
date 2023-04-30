@@ -20,7 +20,7 @@ class ListViewItem extends StatelessWidget {
         height: 120,
         child: Row(
           children:[
-            const CustomImageItem(),
+            const CustomImageItem(imageUrl: 'https://i1.wp.com/onehundreddollarsamonth.com/wp-content/uploads/2013/11/Top-10-Childrens-Book-Series-The-Perfect-Christmas-Gifts-.jpg?ssl=1'),
             const SizedBox(width: 30,),
             Expanded(
               child: Column(
