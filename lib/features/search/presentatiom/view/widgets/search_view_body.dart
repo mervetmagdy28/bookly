@@ -1,7 +1,6 @@
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../../home/presenation/views/widgets/best_seller_list_view_item.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({Key? key}) : super(key: key);
@@ -29,7 +28,9 @@ class SearchViewBody extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
-                itemBuilder: ((context, index) => const ListViewItem()),
+                itemBuilder: ((context, index) => //const ListViewItem()
+                    const Text("data")
+                ),
                 separatorBuilder: (context, index) => const SizedBox(height: 20,),
                 itemCount: 20),
           )
