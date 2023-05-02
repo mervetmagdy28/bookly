@@ -7,3 +7,5 @@ const Duration kPrimaryDuration=Duration(milliseconds: 300);
 const kGtSectraFine='GT Sectra Fine';
 
 const String errImage='https://mycomputerworks.com/wp-content/uploads/2017/05/joomla-404-error-page.png';
+
+const String qCategory='weakness';
