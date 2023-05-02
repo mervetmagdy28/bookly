@@ -1,13 +1,14 @@
 import 'package:bookly/features/home/presenation/views/widgets/button_row.dart';
 import 'package:bookly/features/home/presenation/views/widgets/custom_book_details_appBar.dart';
+import 'package:bookly/features/home/presenation/views/widgets/similar_listview_section.dart';
 import 'package:flutter/material.dart';
+import '../../../data/models/book_model.dart';
 import 'book_details_section.dart';
-import 'like_listview_section.dart';
 
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({Key? key}) : super(key: key);
-
+  const BookDetailsViewBody({Key? key, required this.bookModel}) : super(key: key);
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
 
@@ -23,7 +24,7 @@ class BookDetailsViewBody extends StatelessWidget {
                    BookDetailsSection(),
                    ButtonRow(),
                    Expanded(child: SizedBox(height: 10,)),
-                   LikeListViewSection(),
+                   SimilarListViewSection(),
                    SizedBox(height: 20,)
                 ],
               ),

@@ -1,0 +1,36 @@
+import 'package:bookly/features/home/presenation/view_models/similar_books_cubit/similar_books_cubit.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_shimmer/flutter_shimmer.dart';
+
+import '../../../../../core/widgets/error_message.dart';
+import 'custom_image_item.dart';
+
+class SimilarListView extends StatelessWidget {
+  const SimilarListView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return  BlocBuilder<SimilarBooksCubit,SimilarBooksState>(
+      builder: (context, state){
+        if(state is SimilarBooksSuccess){
+          return  SizedBox(
+              height: MediaQuery.of(context).size.height*.15,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: state.books.length,
+                itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: CustomImageItem(imageUrl: state.books[index].volumeInfo.imageLinks?.thumbnail ?? ''),
+                ),)
+          );
+        }else if (state is SimilarBooksFailure){
+          return CustomErrorMessage(errMessage: state.errMessage);
+        }else{
+          return ProfilePageShimmer(
+                );
+        }
+      }
+    );
+  }
+}

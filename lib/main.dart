@@ -24,14 +24,12 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FeaturedBooksCubit(
             getIt.get<HomeRepoImpl>(),
-            // HomeRepoImpl(ApiService(Dio())),
-          )..fetchFeaturedBooks(),
+            )..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(
             getIt.get<HomeRepoImpl>(),
-            //  HomeRepoImpl(ApiService(Dio())),
-          )..fetchNewestBooks(),
+             )..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(

@@ -16,7 +16,7 @@ class ListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        GoRouter.of(context).push(AppRouter.bookDetailsView);
+        GoRouter.of(context).push(AppRouter.bookDetailsView, extra: bookModel,);
       },
       child: SizedBox(
         height: 120,

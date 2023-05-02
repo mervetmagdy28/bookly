@@ -47,7 +47,7 @@ class HomeRepoImpl implements HomeRepo{
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks() async{
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks({required String category}) async{
     try{
       var data=await apiService.get(endPoint: 'volumes?Filtering=free-ebooks&Sorting=relevance &q=$qCategory');
       List<BookModel> books=[];
@@ -60,7 +60,11 @@ class HomeRepoImpl implements HomeRepo{
         return left(ServerFailure.fromDioError(dioError: e));
       } return left(ServerFailure(e.toString()));
     }
+
   }
+
+
+
 
 }
 

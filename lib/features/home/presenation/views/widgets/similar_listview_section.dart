@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
-import 'like_list_view.dart';
+import 'similar_list_view.dart';
 
-class LikeListViewSection extends StatelessWidget {
-  const LikeListViewSection({Key? key}) : super(key: key);
+class SimilarListViewSection extends StatelessWidget {
+  const SimilarListViewSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class LikeListViewSection extends StatelessWidget {
       children: [
         Text("You can also Like",style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w600),),
         const SizedBox(height: 10,),
-        const LikeListView(),
+        const SimilarListView(),
       ],
     );
   }
