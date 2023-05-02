@@ -1,4 +1,5 @@
 import 'package:bookly/core/widgets/custom_loading_indicator.dart';
+import 'package:bookly/costants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class CustomImageItem extends StatelessWidget {
             imageUrl: imageUrl,
           placeholder: (context, url) => const CustomLoadingIndicator(),
           errorWidget: (context, url, error) => Image.network(
-            'https://mycomputerworks.com/wp-content/uploads/2017/05/joomla-404-error-page.png',
+            errImage,
             fit: BoxFit.fill,
           ),
         ),

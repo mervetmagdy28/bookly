@@ -22,7 +22,7 @@ class ListViewItem extends StatelessWidget {
         height: 120,
         child: Row(
           children:[
-            CustomImageItem(imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail??''),
+            CustomImageItem(imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail??errImage),
             const SizedBox(width: 30,),
             Expanded(
               child: Column(
@@ -37,8 +37,12 @@ class ListViewItem extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 3,),
-                   Text(bookModel.volumeInfo.authors![0], style: Styles.textStyle14,),
-                  const SizedBox(height: 3,),
+                  Text(bookModel.volumeInfo.authors?[0]??'no authors',
+                    style: Styles.textStyle14,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                   const SizedBox(height: 3,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
