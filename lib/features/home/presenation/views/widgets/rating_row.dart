@@ -5,8 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class RatingRow extends StatelessWidget {
   const RatingRow({Key? key, this.mainAxisAlignment=MainAxisAlignment.start, required this.rating, required this.countRating}) : super(key: key);
   final MainAxisAlignment mainAxisAlignment;
-  final int rating;
-  final int countRating;
+  final num rating;
+  final num countRating;
   @override
   Widget build(BuildContext context) {
     return Row(

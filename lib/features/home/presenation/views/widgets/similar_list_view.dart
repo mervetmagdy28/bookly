@@ -1,8 +1,11 @@
+import 'package:bookly/costants.dart';
 import 'package:bookly/features/home/presenation/view_models/similar_books_cubit/similar_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_shimmer/flutter_shimmer.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/router.dart';
 import '../../../../../core/widgets/error_message.dart';
 import 'custom_image_item.dart';
 
@@ -21,7 +24,12 @@ class SimilarListView extends StatelessWidget {
                 itemCount: state.books.length,
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.only(right: 15),
-                  child: CustomImageItem(imageUrl: state.books[index].volumeInfo.imageLinks?.thumbnail ?? ''),
+                  child: GestureDetector(
+                      onTap: (){
+                        GoRouter.of(context).replace(AppRouter.bookDetailsView, extra: state.books[index],);
+                      },
+                      child: CustomImageItem(imageUrl: state.books[index].volumeInfo.imageLinks?.thumbnail ?? errImage)
+                  ),
                 ),)
           );
         }else if (state is SimilarBooksFailure){

@@ -1,11 +1,13 @@
+import 'package:bookly/costants.dart';
 import 'package:bookly/features/home/presenation/views/widgets/rating_row.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/book_model.dart';
 import 'custom_image_item.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({Key? key}) : super(key: key);
-
+  const BookDetailsSection({Key? key, required this.bookModel}) : super(key: key);
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width=MediaQuery.of(context).size.width;
@@ -13,20 +15,29 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width*.15),
-          child: const CustomImageItem(imageUrl: 'https://i1.wp.com/onehundreddollarsamonth.com/wp-content/uploads/2013/11/Top-10-Childrens-Book-Series-The-Perfect-Christmas-Gifts-.jpg?ssl=1'),
+          child: CustomImageItem(imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail?? errImage),
         ),
         const SizedBox(height: 30,),
-        const Text("The Jungle Book", style: Styles.textStyle30,),
+         Text(bookModel.volumeInfo.title!,
+          style: Styles.textStyle30.copyWith(fontFamily: kGtSectraFine,),
+          maxLines: 3,
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+        ),
         const SizedBox(height: 6,),
         Opacity(
           opacity: .8,
-          child: Text("Rudyard Kipling", style: Styles.textStyle16.copyWith(fontStyle: FontStyle.italic),),
+          child: Text(bookModel.volumeInfo.authors?[0]??'no authors',
+            style: Styles.textStyle16.copyWith(fontStyle: FontStyle.italic),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
         const SizedBox(height: 12,),
-        const RatingRow(
+         RatingRow(
           mainAxisAlignment: MainAxisAlignment.center,
-          countRating: 4,
-          rating: 5,
+          countRating: bookModel.volumeInfo.averageRating??250,
+          rating: bookModel.volumeInfo.ratingsCount??3.5,
         ),
         const SizedBox(height: 30,),
       ],

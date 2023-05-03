@@ -4,6 +4,8 @@ import 'package:bookly/features/home/presenation/view_models/featured_books_cubi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_shimmer/flutter_shimmer.dart';
+import 'package:go_router/go_router.dart';
+import '../../../../../core/utils/router.dart';
 import 'custom_image_item.dart';
 
 class FeaturedListViewItems extends StatelessWidget {
@@ -22,7 +24,11 @@ class FeaturedListViewItems extends StatelessWidget {
          scrollDirection: Axis.horizontal,
          itemBuilder: (context, index) =>  Padding(
            padding: const EdgeInsets.only(right: 15),
-           child: CustomImageItem(imageUrl: state.books[index].volumeInfo.imageLinks?.smallThumbnail??errImage),
+           child: GestureDetector(
+               onTap: (){
+                 GoRouter.of(context).push(AppRouter.bookDetailsView, extra: state.books[index],);
+               },
+               child: CustomImageItem(imageUrl: state.books[index].volumeInfo.imageLinks?.smallThumbnail??errImage)),
          ),),
      );
    }else if(state is FeaturedBooksFailure){
